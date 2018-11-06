@@ -1,0 +1,32 @@
+{
+  "name": "starter-typescript",
+  "version": "1.0.0",
+  "description": "This is a starter for a typescipt project",
+  "author": "Marc Deletang",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "watch": "NODE_ENV=dev ts-node-dev -r tsconfig-paths/register app/index.ts",
+    "lint": "tslint -c tslint.json 'app/**/**.ts'",
+    "update-test": "yarn test -u",
+    "base-test": "jest --config jest.config.js --detectOpenHandles --no-cache --runInBand --forceExit",
+    "test": "yarn base-test",
+    "coverage-ci": "NODE_ENV=test-ci yarn base-test --coverage",
+    "coverage": "yarn base-test --coverage"
+  },
+  "devDependencies": {
+    "@types/config": "0.0.34",
+    "@types/jest": "23.3.9",
+    "jest": "23.6.0",
+    "ts-jest": "23.10.4",
+    "ts-node": "7.0.1",
+    "ts-node-dev": "1.0.0-pre.30",
+    "tslint": "5.11.0",
+    "typescript": "3.1.6"
+  },
+  "dependencies": {
+    "config": "2.0.1",
+    "source-map-support": "0.5.9",
+    "tsconfig-paths": "3.6.0"
+  }
+}

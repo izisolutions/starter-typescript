@@ -1,0 +1,16 @@
+version: "3.2"
+
+services:
+  node:
+    network_mode: 'bridge'
+    build:
+      context: ../starter-typescript
+      dockerfile: docker/Dockerfile-node-dev
+      args:
+        NODE_PORT: ${EXTERNAL_NODE_PORT}
+    ports:
+      - "${EXTERNAL_NODE_PORT}:3000"
+    volumes:
+      - ../starter-typescript:/app:rw
+    env_file:
+      - .env

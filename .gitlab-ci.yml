@@ -1,0 +1,60 @@
+image: docker:stable
+
+variables:
+  DOCKER_HOST: docker
+
+stages:
+- test-compile
+- test
+- build
+# - deploy
+
+before_script:
+  - yarn install
+
+compile:
+  image: node:10.5.0-alpine
+  script:
+    - yarn tsc --version
+    - yarn tsc -p .
+  except:
+    - master
+  tags:
+    - test
+  stage: test-compile
+
+lint:
+  image: node:10.5.0-alpine
+  script:
+    - yarn lint
+  except:
+    - master
+  tags:
+    - test
+  stage: test
+
+coverage:
+  image: node:10.5.0-alpine
+  script:
+    - yarn coverage-ci
+    - mv coverage public
+  except:
+    - master
+  tags:
+    - test
+  stage: test
+  artifacts:
+    paths:
+      - public/
+
+build-latest:
+  image: node:10.5.0-alpine
+  script:
+    - apk update && apk upgrade && apk add make
+    - make production
+  stage: build
+  artifacts:
+    paths:
+      - build/
+  tags:
+    - build

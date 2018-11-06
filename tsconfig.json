@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "strict": false,
+    "target": "es2017",
+    "baseUrl": "./app",
+    "noUnusedLocals": false,
+    "paths": {
+      "app/*": ["./*"]
+    }
+  },
+  "include": ["app/**/*.ts"]
+}
+

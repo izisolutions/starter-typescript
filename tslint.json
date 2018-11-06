@@ -1,0 +1,21 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "jsRules": {},
+  "rules": {
+    "no-console": {
+      "severity": "warn"
+    },
+    "no-unused-variable": {
+      "severity": "warn"
+    },
+    // Prettier conflicts
+    "trailing-comma": false,
+    "arrow-parens": false,
+    // Not convenient
+    "object-literal-sort-keys": false,
+    "interface-name": false
+  },
+  "rulesDirectory": []
+}
+
