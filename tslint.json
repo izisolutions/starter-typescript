@@ -6,9 +6,6 @@
     "no-console": {
       "severity": "warn"
     },
-    "no-unused-variable": {
-      "severity": "warn"
-    },
     // Prettier conflicts
     "trailing-comma": false,
     "arrow-parens": false,
